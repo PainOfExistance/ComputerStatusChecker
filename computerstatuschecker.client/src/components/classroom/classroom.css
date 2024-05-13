@@ -1,0 +1,27 @@
+/* Classrooms.css */
+.classroom-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60vw;
+    max-width: 100%;
+    justify-content: center;
+    margin: 0 auto; /* Center the grid horizontally */
+    gap: 10px; /* Adjust gap between buttons */
+}
+
+.classroom-grid .classroom-button {
+        flex-basis: calc(15vw - 10px);
+    }
+
+
+@media screen and (max-width: 800px) {
+    .classroom-grid .classroom-button {
+        flex-basis: calc(20vw - 10px); /* Adjust width for 2 items per row */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .classroom-grid .classroom-button {
+        flex-basis: calc(30vw - 10px); /* Adjust width for 1 item per row */
+    }
+}

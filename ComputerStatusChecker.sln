@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputerStatusChecker.Server", "ComputerStatusChecker.Server\ComputerStatusChecker.Server.csproj", "{A942E5A8-2251-45C6-8AA0-D9917CD51B8F}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "computerstatuschecker.client", "computerstatuschecker.client\computerstatuschecker.client.esproj", "{840BDA52-FA57-4067-A526-E0B6391CC978}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A942E5A8-2251-45C6-8AA0-D9917CD51B8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A942E5A8-2251-45C6-8AA0-D9917CD51B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A942E5A8-2251-45C6-8AA0-D9917CD51B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A942E5A8-2251-45C6-8AA0-D9917CD51B8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{840BDA52-FA57-4067-A526-E0B6391CC978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{840BDA52-FA57-4067-A526-E0B6391CC978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{840BDA52-FA57-4067-A526-E0B6391CC978}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{840BDA52-FA57-4067-A526-E0B6391CC978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{840BDA52-FA57-4067-A526-E0B6391CC978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{840BDA52-FA57-4067-A526-E0B6391CC978}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BEE0CCDA-4819-4154-810A-6F6169CDA255}
+	EndGlobalSection
+EndGlobal

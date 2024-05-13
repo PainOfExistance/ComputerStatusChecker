@@ -1,0 +1,37 @@
+.computer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px; /* Adjust gap between buttons */
+}
+
+.computer-button {
+    flex: 0 0 calc(20% - 10px); /* 20% width for each button with 10px gap */
+    max-width: 150px; /* Set max width for each button */
+    margin-bottom: 10px; /* Add margin bottom for spacing */
+    /* Add any other styling for buttons as needed */
+}
+
+/* New CSS for layout */
+.root {
+    padding: 20px; /* Assuming this is the padding you mentioned */
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 20vw 60vw 20vw; /* 20% for computers-container, 1fr for computers-list, 20% for add-computer */
+    justify-items:center;
+    justify-content: center;
+}
+
+.computers-container {
+    grid-column: 1;
+}
+
+.computers-list {
+    grid-column: 2;
+}
+
+.add-computer {
+    grid-column: 3;
+}
