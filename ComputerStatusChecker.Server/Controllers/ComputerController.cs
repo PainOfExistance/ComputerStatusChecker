@@ -1,4 +1,5 @@
 ﻿using ComputerStatusChecker.Server.Controllers;
+using ComputerStatusChecker.Server.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
@@ -29,6 +30,33 @@ namespace ComputerStatusChecker.Server
             var computers = await collection.FindAsync(new BsonDocument());
             var computerList = await computers.ToListAsync();
             return Ok(computerList);
+        }
+
+        [HttpGet("status{classroomId}", Name = "GetStaus")]
+        public Task<IActionResult> GetComputerStatus([FromRoute] string classroomId)
+        {
+            List<string> devicesInSubnet = StatusCheck.GetDevicesInSameSubnetAsync().Result.ToList();
+
+            Console.WriteLine("Devices in the same subnet:");
+            foreach (string deviceIP in devicesInSubnet)
+            {
+                Console.WriteLine($"Device IP: {deviceIP}");
+            }
+
+            foreach (string deviceIP in devicesInSubnet)
+            {
+                string status = StatusCheck.GetDeviceStatusAsync(deviceIP).Result.ToString();
+                Console.WriteLine($"Device IP: {deviceIP}, Status: {status}");
+
+                if (status != "Operational")
+                {
+                    Console.WriteLine($"Attempting to get logs for device with IP: {deviceIP}");
+                    StatusCheck.GetDeviceLogsAsync(deviceIP);
+                }
+            }
+
+            //fix 
+            return Task.FromResult<IActionResult>(Ok(devicesInSubnet));
         }
     }
 }
