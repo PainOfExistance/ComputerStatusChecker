@@ -22,7 +22,6 @@ namespace ComputerStatusChecker.Server
             _database = database;
         }
 
-
         [HttpGet("{id}", Name = "GetComputers")]
         public async Task<IActionResult> GetComputers([FromRoute] string id)
         {
@@ -32,7 +31,7 @@ namespace ComputerStatusChecker.Server
             return Ok(computerList);
         }
 
-        [HttpGet("status{classroomId}", Name = "GetStaus")]
+        [HttpGet("status/{classroomId}", Name = "GetStaus")]
         public Task<IActionResult> GetComputerStatus([FromRoute] string classroomId)
         {
             List<string> devicesInSubnet = StatusCheck.GetDevicesInSameSubnetAsync().Result.ToList();
@@ -55,8 +54,24 @@ namespace ComputerStatusChecker.Server
                 }
             }
 
-            //fix 
             return Task.FromResult<IActionResult>(Ok(devicesInSubnet));
         }
+
+        [HttpPost("addComputer/{id}", Name = "AddComputer")]
+        public async Task<IActionResult> AddComputer([FromBody] Computer computer, [FromRoute] string id)
+        {
+            try
+            {
+                var collection = _database.GetCollection<Computer>(id);
+                await collection.InsertOneAsync(computer);
+                return CreatedAtAction(nameof(GetComputers), new { id = computer._Id }, computer);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error adding computer");
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Internal server error: {ex.Message}");
+            }
+        }
+
     }
 }

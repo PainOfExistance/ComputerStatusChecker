@@ -28,7 +28,7 @@ namespace ComputerStatusChecker.Server.Controllers
                 var collections = await _database.ListCollectionNamesAsync();
                 var collectionNames = await collections.ToListAsync();
 
-                return Ok(collectionNames);
+                return Ok(collectionNames.Where(x=>x!="reports").ToList());
             }
             catch (Exception ex)
             {

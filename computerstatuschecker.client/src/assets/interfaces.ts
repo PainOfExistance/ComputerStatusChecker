@@ -7,7 +7,14 @@ interface Forecast {
 }
 
 interface Computer {
-    id: number;
     name: string;
     status: string;
+    apps: string;
+}
+
+interface ErrorPost {
+    name: string;
+    errorMessage: string;
+    severity: string;
+    ID: string;
 }

@@ -1,26 +1,25 @@
+/* Existing CSS */
 .computer-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 10px; /* Adjust gap between buttons */
+    gap: 10px;
 }
 
 .computer-button {
-    flex: 0 0 calc(20% - 10px); /* 20% width for each button with 10px gap */
-    max-width: 150px; /* Set max width for each button */
-    margin-bottom: 10px; /* Add margin bottom for spacing */
-    /* Add any other styling for buttons as needed */
+    flex: 0 0 calc(20% - 10px);
+    max-width: 150px;
+    margin-bottom: 10px;
 }
 
-/* New CSS for layout */
 .root {
-    padding: 20px; /* Assuming this is the padding you mentioned */
+    padding: 20px;
 }
 
 .main-container {
     display: grid;
-    grid-template-columns: 20vw 60vw 20vw; /* 20% for computers-container, 1fr for computers-list, 20% for add-computer */
-    justify-items:center;
+    grid-template-columns: 20vw 60vw 20vw;
+    justify-items: center;
     justify-content: center;
 }
 
@@ -34,4 +33,31 @@
 
 .add-computer {
     grid-column: 3;
+    text-align: center;
 }
+
+    /* Updated CSS for form alignment and label positioning */
+    .add-computer form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the start (left) */
+        width: 100%;
+    }
+
+    .add-computer label {
+        display: inline-block; /* Display labels inline */
+        text-align: left; /* Align text to the left */
+        width: 120px; /* Fixed width for labels to align them */
+        margin-right: 10px; /* Space between label and input */
+    }
+
+    .add-computer input,
+    .add-computer select {
+        margin-top: 5px;
+        margin-bottom: 15px;
+        width: 80%;
+    }
+
+    .add-computer button {
+        margin-top: 10px;
+    }

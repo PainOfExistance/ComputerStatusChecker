@@ -21,14 +21,17 @@ function Classrooms() {
         fetchClassrooms();
     }, []);
 
-    return (
+    return (<>
         <div className="classroom-grid">
             {classrooms.map((room, index) => (
-                <button key={index} className="classroom-button">
-                    <Link to={"/computers/" + room}>{room}</Link>
-                </button>
+                <Link to={"/computers/" + room}>
+                    <button key={index} className="classroom-button">
+                        {room}
+                    </button>
+                </Link>
             ))}
         </div>
+        </>
     );
 
 }
