@@ -121,7 +121,7 @@ function Computers() {
                         <div>
                             <h2>Podatki o računalniku</h2>
                             <p>Ime: {selectedComputer?.name}</p>
-                            <p>Status: {selectedComputer?.status}</p>
+                            <p>Operacijski sistem: {selectedComputer?.status}</p>
                             <p>Aplikacije: {selectedComputer?.apps}</p>
                         </div>
                         <div>
@@ -129,7 +129,7 @@ function Computers() {
                             {errors.length === 0 ? (<p>Ni napak</p>)
                                 : (errors.map((error, index) => (
                                     <div key={index}>
-                                        <p>Napaka: {error.errorMessage}</p>
+                                        <p style={{ width: 120 }}>Sporočilo: {error.errorMessage}</p>
                                         <p>Kritičnost: {error.severity}</p>
                                         <button onClick={() => removeError(error.ID)}>Razrešeno</button>
                                     </div>
